@@ -140,6 +140,7 @@ void updateRecord(FILE *fPtr)
         // move file pointer to correct record in file
         // move back by 1 record length
         // write updated record over old record in file
+        fseek(fPtr, -(long)sizeof(struct clientData), SEEK_CUR);
         fwrite(&client, sizeof(struct clientData), 1, fPtr);
     } // end else
 } // end function updateRecord
